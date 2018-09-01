@@ -1,0 +1,39 @@
+
+```{r}
+
+library("twitteR")
+library("RCurl")
+library("base64enc")
+library("openssl")
+library("httpuv")
+library("ROAuth")
+library("httr")
+
+
+require(twitteR)
+require(RCurl)
+require(base64enc)
+require(openssl)
+require(httpuv)
+require(ROAuth)
+require(httr)
+
+
+consumer_key <- 'sz6x0nvL0ls9wacR64MZu23z4'
+consumer_secret <- 'ofeGnzduikcHX6iaQMqBCIJ666m6nXAQACIAXMJaFhmC6rjRmT'
+access_token <- '854004678127910913-PUPfQYxIjpBWjXOgE25kys8kmDJdY0G'
+access_secret <- 'BC2TxbhKXkdkZ91DXofF7GX8p2JNfbpHqhshW1bwQkgxN'
+
+setup_twitter_oauth (consumer_key, consumer_secret, access_token, access_secret)
+
+bergertoajah <- '#BERGER2ajah #BERGERtoAJAH #berger2ajah #bergertoajah #BergertoAjah #BERGER2AJAH #Berger2Ajah #BERGERTOajah #BERGERTOAJAH'
+
+tweets <- searchTwitter('#bergertoajah' , n=10 ,lang='en')
+
+print(tweets)
+
+save_as_csv(tweets, "tweets_for_R.csv", prepend_ids = TRUE, na = "",
+  fileEncoding = "UTF-8")
+
+```
+
